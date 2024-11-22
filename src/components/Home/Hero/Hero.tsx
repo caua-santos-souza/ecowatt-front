@@ -9,7 +9,7 @@ const hero = () => {
                 <Link className={styles.Hero__botao} href="/Login">Comece a Economizar </Link>
             </div>
             
-            <img src="/assets/ImgHero.svg" alt="foto painel solar" />
+            <img className={styles.hero__img} src="/assets/ImgHero.svg" alt="foto painel solar" />
             
         </section>
     )
