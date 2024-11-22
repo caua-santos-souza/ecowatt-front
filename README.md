@@ -48,28 +48,54 @@ npm install emailjs
 
 # api Java
 
-para executar a api python será necessarío instalar algumas bibliotecas:
+Para executar a API, precismos seguir os seguintes passos:
 
-pip install flask
-pip install flask_cors
-pip install oracledb
-pip install json
-pip install random
-pip install datetime
+Abrir o cmd da máquina, digitar: 
 
-para rodar a api, certifique-se que a api e o arquivo oracle_conn.json estão na mesma pasta.
+cd <diretório do seu eclipse workspace>
+git clone https://github.com/LuigiBerzaghi/EcoWatt
 
-no arquivo oracle_conn.json troque o user, password para o seu usuario e senha do seu banco de dados oracle, lembre-se
-de que para a api funcionar o banco tem que estar conectado.
+após isso, devemos abrir o Eclipse, clcar em File-->import-->Maven-->Existing maven project
+e então selecionar o arquivo do diretório que acabamos de 'clonar'.
 
-após isso é só rodar a api com o comando python {nome do arquivo.py} ou apertar o botão executar se o editor for
-o vs code.
+a api támbem pode ser instalada localmente usando o entregavel.
 
-quando rodar o servidor local da api, garanta que o caminho seja este: http://127.0.0.1:5000/
-caso contrario, coloque o caminho que foi designado a você pelo vs code nos componentes react 
+feito isso, é importante verificar se os marketplaces necessários estão instalados, podemos fazer essa verificação em:
+
+help-->eclipse marketplace-->installed
+
+precisamos das duas bibliotecas de web tools e da biblioteca m2e
+
+após verificar a existência das bibliotecas, clicamos com o botão direito no projeto 'EcoWatt'-->Run as-->Run on server
+
+agora iremos criar um server
+
+abrimos a pasta 'apache' e selecionamos o servidor da versão TomCat9.0
+
+após isso, clicamos em 'Download and Install...', para que o eclipse baixe as configurações da versão selecionada do TomCat,
+agora clicamos em 'Finish'.
+
+agora, voltando na parte de 'Run on server', podemos clicar em 'next'.
+
+nessa aba, precisamos garantir que o nosso projeto 'EcoWatt' esteja na coluna chamada 'configured', posicionada no lado diretiro da tela,
+e agora podemos clicar em 'Finish'.
+
+Agora o servidor será automaticamente incializado e podemos usar o vercel ou o localhost:3000 para as funcionalidades da nossa API
+
+caso a api não rode, verifique os warnings, e de quick six (as vezes causa algum conflito de versão), caso tenha 2 versões de quick fix,
+use a opção de export. se mesmo assim não rodar, verifique se a api esta rodando na versão do seu apache, clique com o botão direito na api,
+propertis-->target runtimes e veja se a versão é a mesma instalada no seu computador. para verificar a sua versão vá em window-->preferences-->server-->runtime environmantes e selecione a mesma versão na api.
+
+fazendo isso a api deve funcionar normalmente, ela já esta hospedada em um banco de dados, usando o link:
+
+http://localhost:8080/EcoWatt/api/clientes com a api rodando é possivel ver as alterações de CRUD.
+
+caso queira rodar a api no seu banco de dados oracle, crie a tabela que esta no entregável, em seguida, basta ir em src-->main-->Java-->br-->com-->ecowatt-->model-->dao-->util-->credenciais.java e alterar para os dados do seu oracle.
+
+
 # links
 
 Github:  https://github.com/caua-santos-souza/ecowatt-front
 Vercel:  https://ecowatt-front-gamma.vercel.app/
-Youtube: link
-Tutorial de instalação(caso necessário): link
+Youtube: https://www.youtube.com/watch?v=AouON0ohOVY
+Tutorial de instalação(caso necessário): https://www.youtube.com/watch?v=vCMGxxJ_H6M
