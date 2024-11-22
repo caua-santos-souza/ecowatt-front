@@ -12,9 +12,9 @@ const Vantagens = () =>{
                     <p>Veja o impacto positivo da sua escolha, reduzindo emissões e economizando energia com carros elétricos e painéis solares.</p>
                 </div>
                 <div className={styles.card__vantagens}>
-                    <h2>Alertas de Consumo em Horários de Pico</h2>
+                    <h2>Avisos sobre Sustentabilidade</h2>
                     <img src="/assets/alertas.svg" alt="placa de alerta" />
-                    <p>Receba notificações quando o consumo atingir níveis críticos, ajudando a evitar custos extras.</p>
+                    <p>Descubra como os carros elétricos e os painéis solares podem reduzir seus custos e impactar positivamente o meio ambiente.</p>
                 </div>
                 <div className={styles.card__vantagens}>
                     <h2>Análise de Economia de energia</h2>
