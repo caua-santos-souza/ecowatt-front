@@ -17,8 +17,8 @@ const UsuarioInfo = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState('');
-    const [isLoading, setIsLoading] = useState(true); // Para controlar o carregamento da página
-    const [isEditing, setIsEditing] = useState(false); // Controla se está no modo de edição
+    const [isLoading, setIsLoading] = useState(true); 
+    const [isEditing, setIsEditing] = useState(false); 
     const router = useRouter();
 
     const usuarioData = JSON.parse(localStorage.getItem('usuario') || '{}');
@@ -29,10 +29,8 @@ const UsuarioInfo = () => {
     useEffect(() => {
         const logado = localStorage.getItem('logado');
         if (logado !== 'sim') {
-            // Se não estiver logado, redireciona para a página de login
             router.push('/Login');
         } else {
-            // Se estiver logado, carrega as informações do usuário
             if (cpf) {
                 fetch(`${apiUrl}/${cpf}`)
                     .then(response => {
@@ -46,11 +44,11 @@ const UsuarioInfo = () => {
                         setNome(data.nome);
                         setEmail(data.email);
                         setSenha(data.senha);
-                        setIsLoading(false); // Dados carregados, para a tela de carregamento
+                        setIsLoading(false); 
                     })
                     .catch(error => {
                         setErro('Erro ao carregar as informações do usuário');
-                        setIsLoading(false); // Mesmo se der erro, parar o loading
+                        setIsLoading(false); 
                         console.error(error);
                     });
             } else {
@@ -80,8 +78,9 @@ const UsuarioInfo = () => {
             .then(text => {
                 if (text === '1' || text.trim() === '') {
                     alert('Informações atualizadas com sucesso!');
+                    // Atualizar o estado de usuário diretamente
                     setUsuario(updatedUser);
-                    setIsEditing(false); // Após salvar, desabilita a edição
+                    setIsEditing(false); 
                 } else {
                     throw new Error('Falha na atualização do cliente');
                 }
@@ -105,7 +104,7 @@ const UsuarioInfo = () => {
                     alert('Usuário excluído com sucesso!');
                     localStorage.removeItem('usuario');
                     localStorage.removeItem('logado');
-                    router.push('/'); // Redireciona para a página inicial
+                    router.push('/'); 
                 })
                 .catch(error => {
                     alert('Erro ao excluir o usuário');
@@ -115,15 +114,15 @@ const UsuarioInfo = () => {
     };
 
     const handleEditClick = () => {
-        setIsEditing(true); // Ativa o modo de edição
+        setIsEditing(true); 
     };
 
     const handleCancelClick = () => {
-        setIsEditing(false); // Desativa o modo de edição e retorna para a visualização
+        setIsEditing(false); 
     };
 
     if (isLoading) {
-        return <div>Loading...</div>; // Exibe o loading enquanto as informações são carregadas
+        return <div>Carregando...</div>; 
     }
 
     return (
@@ -143,7 +142,7 @@ const UsuarioInfo = () => {
                                 type="text"
                                 value={nome}
                                 onChange={(e) => setNome(e.target.value)}
-                                disabled={!isEditing} // Desabilita o campo se não estiver editando
+                                disabled={!isEditing} 
                             />
                         </div>
                         <div>
@@ -153,7 +152,7 @@ const UsuarioInfo = () => {
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                disabled={!isEditing} // Desabilita o campo se não estiver editando
+                                disabled={!isEditing} 
                             />
                         </div>
                         <div>
@@ -163,7 +162,7 @@ const UsuarioInfo = () => {
                                 type="password"
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
-                                disabled={!isEditing} // Desabilita o campo se não estiver editando
+                                disabled={!isEditing} 
                             />
                         </div>
 
@@ -171,7 +170,7 @@ const UsuarioInfo = () => {
                             <button
                                 className={styles.button}
                                 type="button"
-                                onClick={handleEditClick} // Habilita a edição
+                                onClick={handleEditClick} 
                             >
                                 Editar
                             </button>
@@ -180,21 +179,21 @@ const UsuarioInfo = () => {
                                 <button
                                     className={styles.button}
                                     type="button"
-                                    onClick={atualizarInfo} // Salva as alterações
+                                    onClick={atualizarInfo} 
                                 >
                                     Salvar
                                 </button>
                                 <button
                                     className={styles.button}
                                     type="button"
-                                    onClick={handleCancelClick} // Cancela a edição
+                                    onClick={handleCancelClick} 
                                 >
-                                    Sair
+                                    Cancelar
                                 </button>
                                 <button
                                     className={`${styles.button} ${styles.redButton}`}
                                     type="button"
-                                    onClick={excluirUsuario} // Exclui a conta
+                                    onClick={excluirUsuario} 
                                 >
                                     Excluir Conta
                                 </button>
