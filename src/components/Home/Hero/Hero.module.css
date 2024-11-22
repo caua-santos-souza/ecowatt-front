@@ -1,39 +1,42 @@
-.Hero{
+.Hero {
     display: flex;
-    
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.hero__img{
+.hero__img {
     width: 100%;
     height: auto;
 }
 
-.Hero__conteudo{
+.Hero__conteudo {
     display: flex;
     flex-direction: column;
     gap: 22px;
     margin-left: 90px;
-    margin-top: 40px;
+    width: 100%;
+    text-align: left;
 }
 
-.Hero__conteudo h1{
+.Hero__conteudo h1 {
     color: var(--azul-texto);
     font-size: 44px;
     font-weight: bold;
 }
 
-.Hero__conteudo p{
+.Hero__conteudo p {
     color: var(--cinza-texto);
     font-size: 22px;
     font-weight: 300;
 }
 
-.Hero__botao{
+.Hero__botao {
     text-decoration: none;
     color: var(--branco);
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
-    border: 4px solid ;
+    border: 4px solid;
     padding: 3% 5%;
     width: auto;
     border-radius: 10px;
@@ -43,39 +46,79 @@
 }
 
 .Hero__botao:hover {
-    background-color: var(--branco); 
-    color: var(--verde-principal); 
+    background-color: var(--branco);
+    color: var(--verde-principal);
 }
 
-/* Estilo para telas maiores */
+
 @media (min-width: 1024px) {
-    .Hero__botao {
-        font-size: 24px; 
-        padding: 3% 3%; 
-        width: 60%; 
+    .Hero {
+        flex-direction: row;
     }
 
+    .Hero__botao {
+        font-size: 24px;
+        padding: 3% 3%;
+        width: 60%;
+    }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .Hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .Hero__conteudo {
+        margin-left: 0;
+        margin-top: 20px;
+        gap: 16px;
+        padding: 0 20px; 
+    }
+
+    .Hero__conteudo h1 {
+        font-size: 36px;
+    }
+
+    .Hero__conteudo p {
+        font-size: 20px;
+    }
+
     .Hero__botao {
-        font-size: 1rem; 
-        padding: 0.8rem 1.5rem; 
+        font-size: 20px;
+        padding: 1.2rem 2.5rem;
+        width: 80%;
+        margin-top: 20px; 
+        margin-bottom: 20px;
+        margin: 0 auto; 
     }
 
-    .Hero__conteudo h1{
-        font-size: 38px;
+    .hero__img {
+        display: none;
     }
-    
-    .Hero__conteudo p{
-        font-size: 18px;
-    }
-
 }
+
 
 @media (max-width: 480px) {
+    .Hero__conteudo h1 {
+        font-size: 30px;
+    }
+
+    .Hero__conteudo p {
+        font-size: 16px;
+    }
+
     .Hero__botao {
-        font-size: 0.9rem; 
-        padding: 0.6rem 1rem; 
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        width: 90%; 
+        margin: 0 auto; 
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .Hero__conteudo {
+        padding: 0 15px; 
     }
 }

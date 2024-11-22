@@ -113,3 +113,61 @@
     font-size: 18px;
     box-sizing: border-box;
 }
+
+/* Mobile */
+@media (max-width: 600px) {
+    .container {
+        width: 90%; 
+        padding: 20px; 
+    }
+
+    .title {
+        font-size: 24px; 
+    }
+
+    .input {
+        font-size: 16px; 
+        padding: 10px; 
+    }
+
+    .calculateButton {
+        font-size: 16px; 
+        padding: 12px; 
+    }
+
+    .result {
+        font-size: 16px; 
+        padding: 15px; 
+    }
+
+    .economia, .tempo, .painel {
+        font-size: 16px; 
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .container {
+        width: 80%; 
+    }
+
+    .title {
+        font-size: 26px; 
+    }
+
+    .input {
+        font-size: 17px; 
+    }
+
+    .calculateButton {
+        font-size: 17px;
+    }
+
+    .result {
+        font-size: 17px;
+    }
+
+    .economia, .tempo, .painel {
+        font-size: 17px; 
+    }
+}

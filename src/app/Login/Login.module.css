@@ -134,3 +134,153 @@
     text-decoration: underline;
   }
   
+  @media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        height: 100vh; 
+    }
+
+    .imageSide {
+        display: none; 
+    }
+
+    .formSide {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%; 
+    }
+
+    .Login__texto {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .formSide h1 {
+        font-size: 22px;
+    }
+
+    .formSide p {
+        font-size: 14px;
+    }
+
+    .formSide form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .formSide form input {
+        font-size: 16px;
+        padding-left: 13%;
+    }
+
+    .formSide form button {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    .formSide form a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: 100vh; 
+    }
+
+    .imageSide {
+        display: none;
+    }
+
+    .formSide {
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%; 
+    }
+
+    .Login__texto {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .formSide h1 {
+        font-size: 20px;
+    }
+
+    .formSide p {
+        font-size: 12px;
+    }
+
+    .formSide form input {
+        font-size: 14px;
+        padding-left: 13%;
+    }
+
+    .formSide form button {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .formSide form a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .imageSide {
+        display: none; 
+    }
+
+    .formSide {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%; 
+    }
+
+    .Login__texto {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .formSide h1 {
+        font-size: 18px;
+    }
+
+    .formSide p {
+        font-size: 12px;
+    }
+
+    .formSide form input {
+        font-size: 14px;
+        padding-left: 13%;
+    }
+
+    .formSide form button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .formSide form a {
+        font-size: 12px;
+    }
+}

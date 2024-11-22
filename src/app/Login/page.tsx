@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './Login.module.css';
+import Header from '@/components/Compartilhados/Header/Header';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -45,6 +46,7 @@ const Login = () => {
     };
 
     return (
+        <>
         <div className={styles.container}>
             <div className={styles.imageSide}>
                 <div className={styles.texto__img}>
@@ -83,6 +85,7 @@ const Login = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 

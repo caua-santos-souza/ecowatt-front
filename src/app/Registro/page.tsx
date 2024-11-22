@@ -18,7 +18,7 @@ const Registro = () => {
         senha: '',
     });
     const [message, setMessage] = useState<string>('');
-    const router = useRouter();  // Hook do Next.js para navegação
+    const router = useRouter();  
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -45,7 +45,7 @@ const Registro = () => {
                
                 setTimeout(() => {
                     router.push('/Login');  
-                }, 2000); 
+                }, 800); 
             } else {
                 const errorData = await response.text();
                 setMessage(`Erro: ${errorData}`);

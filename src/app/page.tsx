@@ -5,7 +5,7 @@ import Hero from "@/components/Home/Hero/Hero"
 import Vantagens from "@/components/Home/Vantagens/Vantagens"
 import Destaque from "@/components/Home/Destaque/Destaque"
 import FAQ from "@/components/Compartilhados/Faq/Faq"
-import Contato from "@/components/Compartilhados/Faq/Contato/Contato"
+import Contato from "@/components/Compartilhados/Contato/Contato"
 import Footer from "@/components/Compartilhados/Footer/Footer"
 
 

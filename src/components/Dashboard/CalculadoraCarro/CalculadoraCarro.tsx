@@ -44,7 +44,7 @@ const CarroEletricoCalculator: React.FC = () => {
   const [estado, setEstado] = useState<string>('');  
   const [resultado, setResultado] = useState<string | null>(null);
   const [notaViabilidade, setNotaViabilidade] = useState<number | null>(null);
-  const [fraseViabilidade, setFraseViabilidade] = useState<string | null>(null); // Frase adicional
+  const [fraseViabilidade, setFraseViabilidade] = useState<string | null>(null); 
 
   const handleSubmit = () => {
     const kmMensal = parseFloat(quilometragemMensal.toString());
