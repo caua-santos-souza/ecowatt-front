@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 600px;
+    margin: 4% auto;
+    background-color: var(--offwhite);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    text-align: center;
+    color: var(--azul-texto);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.label {
+    font-weight: 500;
+    color: var(--azul-texto);
+    margin-bottom: 5px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid var(--cinza-medio);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--preto-claro);
+    transition: border 0.3s ease;
+}
+
+.input:focus {
+    border-color: var(--verde-principal);
+    outline: none;
+}
+
+.button {
+    background-color: var(--verde-principal);
+    color: var(--branco);
+    padding: 12px;
+    border: 4px solid var(--verde-principal);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin: 15px 0;
+
+}
+
+.buttonContainer{
+    display: flex;
+    gap: 2%;
+}
+
+.redButton{
+    background-color: red;
+    border: none;
+}
+
+.button:hover {
+    background-color: var(--branco);
+    color: var(--verde-principal);
+}
+
+.redButton:hover{
+    background-color: rgb(224, 6, 6);
+    color: var(--branco);
+}
+
+.error {
+    color: var(--preto-claro);
+    background-color: var(--cinza-medio);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+

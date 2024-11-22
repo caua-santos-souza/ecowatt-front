@@ -1,0 +1,126 @@
+.faq {
+    margin: 30px 57px;
+}
+
+.faq h3{
+    font-weight: 400;
+}
+
+.faq__titulo {
+    position: relative;
+    font-size: 38px;
+    color: var(--azul-texto);
+    font-weight: 600;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.faq__titulo::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background-color: var(--verde-principal);
+}
+
+.item_faq {
+    border: 2px solid var(--cinza-medio);
+    border-radius: 4px;
+    overflow: hidden;
+    border-left: none;
+    border-right: none;
+    font-weight: 100;
+}
+
+.pergunta_faq {
+    background-color: var(--branco);
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--preto);
+    font-size: 18px;
+}
+
+
+.resposta_faq {
+    padding: 0 10px;
+    background-color: var(--offwhite);
+    color: var(--cinza-texto);
+    height: 0; 
+    overflow: hidden;
+    font-weight: 300;
+    transition: height 0.3s ease; 
+}
+
+.resposta_faq.aberto {
+    height: auto; 
+}
+
+.seta_faq {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--verde-principal);
+    transition: transform 0.3s ease;
+    outline: none; 
+}
+
+
+.seta_faq:focus {
+    outline: none;
+}
+
+
+.seta_faq.aberto {
+    transform: rotate(180deg);
+}
+
+
+.seta_faq::before {
+    content: "";
+    display: none;
+}
+
+@media (max-width: 840px) {
+    .faq {
+        margin: 20px; 
+        width: calc(100% - 40px);
+    }
+
+    .faq__titulo {
+        font-size: 28px; 
+        padding-left: 15px;
+        margin-bottom: 30px; 
+    }
+
+    .faq__titulo::before {
+        width: 6px; 
+    }
+
+    .item_faq {
+        margin-bottom: 15px; 
+    }
+
+    .pergunta_faq {
+        padding: 8px;
+        font-size: 16px; 
+    }
+
+    .resposta_faq {
+        padding: 0; 
+        font-size: 14px; 
+    }
+
+    .seta_faq {
+        border-left: 5px solid transparent; 
+        border-right: 5px solid transparent;
+        border-top: 5px solid var(--verde-principal);
+    }
+}

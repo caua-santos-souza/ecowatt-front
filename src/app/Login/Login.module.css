@@ -1,0 +1,136 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh; 
+  }
+  
+  .texto__img{
+    color: var(--branco);
+    padding-right: 25%;
+    
+  }
+
+  .texto__img h1{
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .texto__img p{
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+ 
+ 
+  .imageSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%; 
+    height: 100%; 
+    background-image: url('/assets/Bg.svg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+  }
+  
+
+  .formSide {
+    width: 40%; 
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--branco);
+  }
+
+  .Login__texto{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-right: 25% ;
+  }
+  
+  .formSide h1 {
+    font-size: 24px;
+    color: var(--preto-claro);
+    margin-bottom: 10px;
+
+  }
+  
+  .formSide p {
+    color: var(--cinza-texto);
+    margin-bottom: 20px;
+  }
+  
+  .formSide form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .formSide form input {
+    margin-bottom: 15px;
+    padding: 20px;
+    font-size: 14px;
+    border: 1px solid var(--verde-principal);
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-position: 20px center; 
+    background-size: 20px; 
+    padding-left: 13%; 
+  }
+
+  .formSide form input::placeholder {
+    color: #cdc9c9;
+  }
+
+
+  .input__email{
+    background-image: url('/assets/email.svg'); 
+  }
+
+  .input__senha{
+    background-image: url('/assets/senha.svg'); 
+  }
+
+  
+  
+  .formSide form button {
+    padding: 20px;
+    background-color: var(--verde-principal);
+    color: var(--branco);
+    font-size: 20px;
+    border: 4px solid var(--verde-principal);
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .formSide form button:hover {
+    background-color: var(--branco);
+    color: var(--verde-principal);
+  }
+  
+  .formSide form a {
+    color: var(--verde-principal);
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .formSide p a {
+    color: var(--verde-principal);
+    text-decoration: none;
+  }
+  
+  .formSide p a:hover {
+    text-decoration: underline;
+  }
+  
