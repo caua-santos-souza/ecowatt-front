@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -17,44 +17,49 @@ const UsuarioInfo = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState('');
-    const [isLoading, setIsLoading] = useState(true); 
-    const [isEditing, setIsEditing] = useState(false); 
+    const [isLoading, setIsLoading] = useState(true); // Indicador de carregamento
+    const [isEditing, setIsEditing] = useState(false); // Modo de edição
     const router = useRouter();
-
-    const usuarioData = JSON.parse(localStorage.getItem('usuario') || '{}');
-    const cpf = usuarioData?.cpf ?? '';
 
     const apiUrl = 'http://localhost:8080/EcoWatt/api/clientes';
 
+    // Função para obter dados do localStorage com verificação de ambiente
+    const getLocalStorageItem = (key: string) => {
+        if (typeof window !== 'undefined') {
+            return localStorage.getItem(key);
+        }
+        return null;
+    };
+
+    const cpf = JSON.parse(getLocalStorageItem('usuario') || '{}')?.cpf ?? '';
+
     useEffect(() => {
-        const logado = localStorage.getItem('logado');
+        const logado = getLocalStorageItem('logado');
         if (logado !== 'sim') {
             router.push('/Login');
+        } else if (cpf) {
+            fetch(`${apiUrl}/${cpf}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar as informações do usuário');
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    setUsuario(data);
+                    setNome(data.nome);
+                    setEmail(data.email);
+                    setSenha(data.senha);
+                    setIsLoading(false);
+                })
+                .catch((error) => {
+                    setErro('Erro ao carregar as informações do usuário');
+                    setIsLoading(false);
+                    console.error(error);
+                });
         } else {
-            if (cpf) {
-                fetch(`${apiUrl}/${cpf}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Erro ao carregar as informações do usuário');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        setUsuario(data);
-                        setNome(data.nome);
-                        setEmail(data.email);
-                        setSenha(data.senha);
-                        setIsLoading(false); 
-                    })
-                    .catch(error => {
-                        setErro('Erro ao carregar as informações do usuário');
-                        setIsLoading(false); 
-                        console.error(error);
-                    });
-            } else {
-                setErro('CPF não encontrado no localStorage');
-                setIsLoading(false);
-            }
+            setErro('CPF não encontrado no localStorage');
+            setIsLoading(false);
         }
     }, [router, cpf]);
 
@@ -68,24 +73,22 @@ const UsuarioInfo = () => {
             },
             body: JSON.stringify(updatedUser),
         })
-            .then(response => {
+            .then((response) => {
                 if (response.ok) {
                     return response.text();
-                } else {
-                    throw new Error('Erro ao atualizar as informações');
                 }
+                throw new Error('Erro ao atualizar as informações');
             })
-            .then(text => {
+            .then((text) => {
                 if (text === '1' || text.trim() === '') {
                     alert('Informações atualizadas com sucesso!');
-                    // Atualizar o estado de usuário diretamente
                     setUsuario(updatedUser);
-                    setIsEditing(false); 
+                    setIsEditing(false);
                 } else {
                     throw new Error('Falha na atualização do cliente');
                 }
             })
-            .catch(error => {
+            .catch((error) => {
                 alert('Erro ao atualizar as informações');
                 console.error('Erro ao atualizar as informações:', error);
             });
@@ -97,16 +100,16 @@ const UsuarioInfo = () => {
             fetch(`${apiUrl}/${cpf}`, {
                 method: 'DELETE',
             })
-                .then(response => {
+                .then((response) => {
                     if (!response.ok) {
                         throw new Error('Erro ao excluir o usuário');
                     }
                     alert('Usuário excluído com sucesso!');
                     localStorage.removeItem('usuario');
                     localStorage.removeItem('logado');
-                    router.push('/'); 
+                    router.push('/');
                 })
-                .catch(error => {
+                .catch((error) => {
                     alert('Erro ao excluir o usuário');
                     console.error(error);
                 });
@@ -114,15 +117,15 @@ const UsuarioInfo = () => {
     };
 
     const handleEditClick = () => {
-        setIsEditing(true); 
+        setIsEditing(true);
     };
 
     const handleCancelClick = () => {
-        setIsEditing(false); 
+        setIsEditing(false);
     };
 
     if (isLoading) {
-        return <div>Carregando...</div>; 
+        return <div className={styles.loading}>Carregando...</div>;
     }
 
     return (
@@ -142,7 +145,7 @@ const UsuarioInfo = () => {
                                 type="text"
                                 value={nome}
                                 onChange={(e) => setNome(e.target.value)}
-                                disabled={!isEditing} 
+                                disabled={!isEditing}
                             />
                         </div>
                         <div>
@@ -152,7 +155,7 @@ const UsuarioInfo = () => {
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                disabled={!isEditing} 
+                                disabled={!isEditing}
                             />
                         </div>
                         <div>
@@ -162,7 +165,7 @@ const UsuarioInfo = () => {
                                 type="password"
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
-                                disabled={!isEditing} 
+                                disabled={!isEditing}
                             />
                         </div>
 
@@ -170,7 +173,7 @@ const UsuarioInfo = () => {
                             <button
                                 className={styles.button}
                                 type="button"
-                                onClick={handleEditClick} 
+                                onClick={handleEditClick}
                             >
                                 Editar
                             </button>
@@ -179,21 +182,21 @@ const UsuarioInfo = () => {
                                 <button
                                     className={styles.button}
                                     type="button"
-                                    onClick={atualizarInfo} 
+                                    onClick={atualizarInfo}
                                 >
                                     Salvar
                                 </button>
                                 <button
                                     className={styles.button}
                                     type="button"
-                                    onClick={handleCancelClick} 
+                                    onClick={handleCancelClick}
                                 >
                                     Cancelar
                                 </button>
                                 <button
                                     className={`${styles.button} ${styles.redButton}`}
                                     type="button"
-                                    onClick={excluirUsuario} 
+                                    onClick={excluirUsuario}
                                 >
                                     Excluir Conta
                                 </button>
