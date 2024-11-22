@@ -54,14 +54,23 @@
         padding: 3% 3%; 
         width: 50%; 
     }
-}
 
+}
 
 @media (max-width: 768px) {
     .Hero__botao {
         font-size: 1rem; 
         padding: 0.8rem 1.5rem; 
     }
+
+    .Hero__conteudo h1{
+        font-size: 38px;
+    }
+    
+    .Hero__conteudo p{
+        font-size: 18px;
+    }
+
 }
 
 @media (max-width: 480px) {
